@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle factoids",
+        "command": "factoids:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "factoids",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "factoids:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
