@@ -1,5 +1,5 @@
 {
   "atom-workspace": {
-    "ctrl-alt-o": "factoids:toggle"
+    "ctrl-d": "factoids:decompose"
   }
 }

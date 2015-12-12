@@ -6,7 +6,7 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "factoids:toggle"
+    "atom-workspace": "factoids:decompose"
   },
   "repository": "https://github.com/__package-author__/factoids",
   "license": "MIT",
@@ -14,5 +14,6 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "xregexp": "^3.0.0"
   }
 }
