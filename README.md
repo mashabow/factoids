@@ -1,5 +1,21 @@
-# factoids package
+# Factoids
 
-A short description of your package.
+An Atom package to decompose CJK Ideographs into IDS (Ideographic Description Sequence)
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+![demo.gif](https://raw.githubusercontent.com/wiki/mashabow/factoids/images/demo.gif)
+
+## TODO
+
+- Decompose all characters in selection
+- Compose IDS into a character
+- Support CDP characters
+
+## Licenses
+
+`lib/ids.txt` is taken from https://github.com/kawabata/ids-edit. Its license follows their terms.
+
+All other files are distributed under the MIT License. See `LICENSE.md`.
+
+## Author
+
+Masaya Nakamura ([@mashabow](https://github.com/mashabow "mashabow (Masaya Nakamura)"))
