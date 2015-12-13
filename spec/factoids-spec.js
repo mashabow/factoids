@@ -2,72 +2,56 @@
 
 import Factoids from '../lib/factoids';
 
-// Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
-//
-// To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
-// or `fdescribe`). Remove the `f` to unfocus the block.
-
 describe('Factoids', () => {
   let workspaceElement, activationPromise;
 
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
     activationPromise = atom.packages.activatePackage('factoids');
+    waitsForPromise(() => {
+      return atom.workspace.open();
+    })
   });
 
-  describe('when the factoids:toggle event is triggered', () => {
-    it('hides and shows the modal panel', () => {
-      // Before the activation event the view is not on the DOM, and no panel
-      // has been created
-      expect(workspaceElement.querySelector('.factoids')).not.toExist();
+  describe('decompose', () => {
 
-      // This is an activation event, triggering it will cause the package to be
-      // activated.
-      atom.commands.dispatch(workspaceElement, 'factoids:toggle');
+    it('decomposes a character just before the cursor', () => {
+      const editor = atom.workspace.getActiveTextEditor();
+      editor.insertText('文字');
+      editor.setCursorBufferPosition([0, 1]);
 
-      waitsForPromise(() => {
-        return activationPromise;
-      });
+      atom.commands.dispatch(workspaceElement, 'factoids:decompose');
+      waitsForPromise(() => activationPromise);
 
-      runs(() => {
-        expect(workspaceElement.querySelector('.factoids')).toExist();
-
-        let factoidsElement = workspaceElement.querySelector('.factoids');
-        expect(factoidsElement).toExist();
-
-        let factoidsPanel = atom.workspace.panelForItem(factoidsElement);
-        expect(factoidsPanel.isVisible()).toBe(true);
-        atom.commands.dispatch(workspaceElement, 'factoids:toggle');
-        expect(factoidsPanel.isVisible()).toBe(false);
-      });
+      expect(editor.getSelectedText()).toEqual('⿱亠乂');
+      expect(editor.getText()).toEqual('⿱亠乂字');
     });
 
-    it('hides and shows the view', () => {
-      // This test shows you an integration test testing at the view level.
+    it('decomposes according to `sourceLookupOrder: JT`', () => {
+      const editor = atom.workspace.getActiveTextEditor();
+      editor.insertText('共感');
+      editor.moveToEndOfLine();
 
-      // Attaching the workspaceElement to the DOM is required to allow the
-      // `toBeVisible()` matchers to work. Anything testing visibility or focus
-      // requires that the workspaceElement is on the DOM. Tests that attach the
-      // workspaceElement to the DOM are generally slower than those off DOM.
-      jasmine.attachToDOM(workspaceElement);
+      atom.config.set('factoids.sourceLookupOrder', [...'JT']);
+      atom.commands.dispatch(workspaceElement, 'factoids:decompose');
+      waitsForPromise(() => activationPromise);
 
-      expect(workspaceElement.querySelector('.factoids')).not.toExist();
-
-      // This is an activation event, triggering it causes the package to be
-      // activated.
-      atom.commands.dispatch(workspaceElement, 'factoids:toggle');
-
-      waitsForPromise(() => {
-        return activationPromise;
-      });
-
-      runs(() => {
-        // Now we can test for view visibility
-        let factoidsElement = workspaceElement.querySelector('.factoids');
-        expect(factoidsElement).toBeVisible();
-        atom.commands.dispatch(workspaceElement, 'factoids:toggle');
-        expect(factoidsElement).not.toBeVisible();
-      });
+      expect(editor.getSelectedText()).toEqual('⿱咸心');
+      expect(editor.getText()).toEqual('共⿱咸心');
     });
+
+    it('decomposes according to `sourceLookupOrder: TJ`', () => {
+      const editor = atom.workspace.getActiveTextEditor();
+      editor.insertText('共感');
+      editor.moveToEndOfLine();
+
+      atom.config.set('factoids.sourceLookupOrder', [...'TJ']);
+      atom.commands.dispatch(workspaceElement, 'factoids:decompose');
+      waitsForPromise(() => activationPromise);
+
+      expect(editor.getSelectedText()).toEqual('⿵咸心');
+      expect(editor.getText()).toEqual('共⿵咸心');
+    });
+
   });
 });
