@@ -79,7 +79,7 @@
     "eol-last": 2,
     "indent": [2, 2],
     "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
-    "new-cap": 2,
+    "new-cap": [2, {"capIsNewExceptions": ["XRegExp"]}],
     "new-parens": 2,
     "no-array-constructor": 2,
     "no-new-object": 2,

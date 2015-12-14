@@ -3,8 +3,6 @@
 /* eslint-env jasmine */
 /* global waitsForPromise */
 
-import Factoids from '../lib/factoids';
-
 describe('Factoids', () => {
   let workspaceElement, activationPromise;
 
@@ -13,7 +11,7 @@ describe('Factoids', () => {
     activationPromise = atom.packages.activatePackage('factoids');
     waitsForPromise(() => {
       return atom.workspace.open();
-    })
+    });
   });
 
   describe('decompose', () => {
