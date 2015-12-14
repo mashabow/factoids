@@ -1,6 +1,7 @@
 'use babel';
 
-import Factoids from '../lib/factoids';
+/* eslint-env jasmine */
+/* global waitsForPromise */
 
 describe('Factoids', () => {
   let workspaceElement, activationPromise;
@@ -10,7 +11,7 @@ describe('Factoids', () => {
     activationPromise = atom.packages.activatePackage('factoids');
     waitsForPromise(() => {
       return atom.workspace.open();
-    })
+    });
   });
 
   describe('decompose', () => {

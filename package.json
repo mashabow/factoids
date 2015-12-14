@@ -14,5 +14,12 @@
   },
   "dependencies": {
     "xregexp": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.6",
+    "eslint": "^1.10.3"
+  },
+  "scripts": {
+    "lint": "eslint ."
   }
 }

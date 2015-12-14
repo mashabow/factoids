@@ -1,0 +1,117 @@
+{
+  "parser": "babel-eslint",
+
+  "env": {
+    "es6": true,
+    "node": true
+  },
+
+  "ecmaFeatures": {
+    "modules": true
+  },
+
+  "extends": "eslint:recommended",
+
+  "globals": {
+    "atom": true
+  },
+
+  "rules": {
+    "no-console": 0,
+    "no-extra-parens": [2, "functions"],
+
+    "accessor-pairs": 2,
+    "block-scoped-var": 2,
+    "consistent-return": 2,
+    "curly": [2, "multi-line"],
+    "dot-location": [2, "property"],
+    "dot-notation": [2, {"allowKeywords": true}],
+    "eqeqeq": 2,
+    "no-alert": 2,
+    "no-caller": 2,
+    "no-empty-label": 2,
+    "no-empty-pattern": 2,
+    "no-eval": 2,
+    "no-extend-native": 2,
+    "no-extra-bind": 2,
+    "no-floating-decimal": 2,
+    "no-implicit-coercion": 2,
+    "no-implied-eval": 2,
+    "no-invalid-this": 2,
+    "no-iterator": 2,
+    "no-labels": 2,
+    "no-lone-blocks": 2,
+    "no-loop-func": 0,
+    "no-multi-spaces": 2,
+    "no-multi-str": 2,
+    "no-native-reassign": 2,
+    "no-new": 2,
+    "no-new-func": 2,
+    "no-new-wrappers": 2,
+    "no-octal-escape": 2,
+    "no-proto": 2,
+    "no-return-assign": 2,
+    "no-script-url": 2,
+    "no-self-compare": 2,
+    "no-sequences": 2,
+    "no-throw-literal": 2,
+    "no-unused-expressions": 2,
+    "no-void": 2,
+    "no-with": 2,
+    "wrap-iife": [2, "inside"],
+    "yoda": [2, "never", {"exceptRange": true}],
+
+    "strict": [2, "function"],
+
+    "no-catch-shadow": 2,
+    "no-label-var": 2,
+    "no-shadow": 2,
+    "no-shadow-restricted-names": 2,
+    "no-undef-init": 2,
+
+    "no-process-exit": 2,
+
+    "array-bracket-spacing": 2,
+    "camelcase": 2,
+    "comma-spacing": 2,
+    "comma-style": 2,
+    "computed-property-spacing": 2,
+    "eol-last": 2,
+    "indent": [2, 2],
+    "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
+    "new-cap": [2, {"capIsNewExceptions": ["XRegExp"]}],
+    "new-parens": 2,
+    "no-array-constructor": 2,
+    "no-new-object": 2,
+    "no-spaced-func": 2,
+    "no-trailing-spaces": 2,
+    "no-underscore-dangle": 2,
+    "quotes": [2, "single", "avoid-escape"],
+    "semi": 2,
+    "semi-spacing": [2, {"before": false, "after": true}],
+    "space-after-keywords": 2,
+    "space-before-blocks": 2,
+    "space-before-keywords": 2,
+    "space-before-function-paren": [2, "never"],
+    "space-in-parens": 2,
+    "space-infix-ops": 0,
+    "space-return-throw-case": 2,
+    "space-unary-ops": [2, {"words": true, "nonwords": false}],
+    "spaced-comment": [2, "always"],
+
+    "arrow-spacing": 2,
+    "constructor-super": 2,
+    "no-class-assign": 2,
+    "no-const-assign": 2,
+    "no-dupe-class-members": 2,
+    "no-empty-pattern": 2,
+    "no-this-before-super": 2,
+    "no-var": 2,
+    "object-shorthand": 2,
+    "prefer-arrow-callback": 2,
+    "prefer-const": 2,
+    "prefer-reflect": 2,
+    "prefer-spread": 2,
+    "require-yield": 2
+  }
+}
