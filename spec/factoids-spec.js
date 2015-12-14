@@ -1,5 +1,8 @@
 'use babel';
 
+/* eslint-env jasmine */
+/* global waitsForPromise */
+
 import Factoids from '../lib/factoids';
 
 describe('Factoids', () => {
