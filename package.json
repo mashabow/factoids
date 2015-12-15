@@ -1,7 +1,7 @@
 {
   "name": "factoids",
   "main": "./lib/factoids",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Decompose CJK Ideographs into IDS (Ideographic Description Sequence)",
   "keywords": [],
   "activationCommands": {
