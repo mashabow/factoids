@@ -28,6 +28,18 @@ describe('Factoids', () => {
       expect(editor.getText()).toEqual('⿱亠乂字');
     });
 
+    it('decomposes a character which have multiple source-independent IDS into the first one', () => {
+      const editor = atom.workspace.getActiveTextEditor();
+      editor.insertText('丈夫');
+      editor.moveToEndOfLine();
+
+      atom.commands.dispatch(workspaceElement, 'factoids:decompose');
+      waitsForPromise(() => activationPromise);
+
+      expect(editor.getSelectedText()).toEqual('⿻二人');
+      expect(editor.getText()).toEqual('丈⿻二人');
+    });
+
     it('decomposes according to `sourceLookupOrder: JT`', () => {
       const editor = atom.workspace.getActiveTextEditor();
       editor.insertText('共感');
